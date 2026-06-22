@@ -99,7 +99,8 @@ longhun-font/
 │   └── release.sh                    # 一键构建/标签/双仓发布脚本
 ├── docs/                 # 文档
 │   ├── 字体主权战略.md                # 战略文档
-│   └── PUA编码表.md                   # PUA 编码对照
+│   ├── PUA编码表.md                   # PUA 编码对照
+│   └── 字体覆盖报告.md                 # 字元覆盖统计报告
 ├── editor.py             # LonghunFont 编辑器 CLI
 ├── push_both.sh          # 双仓同步脚本
 ├── install_macos.sh      # macOS 字体安装脚本
@@ -189,6 +190,7 @@ python3 scripts/check_font.py glyphs/龍魂字元库_v0013_稳定版.json
 - [x] CHANGELOG 版本变更日志
 - [x] macOS 安装脚本
 - [x] Web 字体 CSS + 演示页
+- [x] 字体覆盖报告（Unicode 区段/PUA/分类统计）
 - [x] CNSH 编辑器接入（Web + Tkinter）
 - [x] Gitee 主仓 + GitHub 镜像双同步
 - [x] SIL Open Font License 1.1
