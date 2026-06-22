@@ -98,9 +98,9 @@ def generate_html_sample(glyph_path: str, output_dir: str, html_path: str):
 
 def main():
     base_dir = Path(__file__).parent.parent
-    glyph_path = base_dir / "glyphs" / "龍魂字元库_v0004_办公版.json"
-    output_dir = base_dir / "output" / "all_glyphs_v0004"
-    html_path = base_dir / "output" / "sample_v0004.html"
+    glyph_path = base_dir / "glyphs" / "龍魂字元库_v0008_文化版.json"
+    output_dir = base_dir / "output" / "all_glyphs_v0008"
+    html_path = base_dir / "output" / "sample_v0008.html"
 
     if len(sys.argv) > 1:
         glyph_path = Path(sys.argv[1])
