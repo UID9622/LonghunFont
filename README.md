@@ -1,8 +1,8 @@
 # 🐉 LonghunFont · 龍魂中文字体
 
-**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0013`  
+**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0014`  
 **归属**: 龍魂系统 × UID9622 原创  
-**定位**: CNSH 中文原生字体 · 文化主权 · 稳定全场景  
+**定位**: CNSH 中文原生字体 · 文化主权 · 龍纹水印标识版  
 **许可证**: SIL Open Font License 1.1
 
 ---
@@ -22,10 +22,11 @@
 
 | 指标 | 数值 |
 |---|---|
-| 字元库版本 | `v0013-稳定版` |
+| 字元库版本 | `v0014-龍纹版` |
 | 总字符数 | **3592** 个 |
 | 汉字 | **2731** 个 |
 | 拉丁/数字/符号 | **114** 个 |
+| 龍纹水印 | **每个字形右下角均嵌入 U+E200 龙纹缩微水印** |
 | 易经八卦 | **75** 个（64 卦 + 8 卦 + 太极 + 两仪） |
 | 五行/河图/洛书/太极八卦 | **8** 个 PUA |
 | 甲骨文 | **150** 个 PUA |
@@ -40,9 +41,9 @@
 | 文化主权图标 | **20** 个 PUA |
 | 实用符号（标点/数学/箭头/制表符/货币/几何） | **151** 个 |
 | 国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等） | **188** 个 |
-| 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF，357 KB） |
-| 字元库文件 | `glyphs/龍魂字元库_v0013_稳定版.json` |
-| SVG 样张 | `output/sample_v0013.html` |
+| 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF，956 KB） |
+| 字元库文件 | `glyphs/龍魂字元库_v0014_龍纹版.json` |
+| SVG 样张 | `output/sample_v0014.html` |
 | PUA 编码表 | `docs/PUA编码表.md` |
 | 许可证 | `LICENSE`（SIL OFL 1.1） |
 
@@ -66,12 +67,13 @@ longhun-font/
 │   ├── 龍魂字元库_v0011_两千中文字.json  # 2657 字
 │   ├── 龍魂字元库_v0011_实用符号版.json  # 2808 字
 │   ├── 龍魂字元库_v0012_国际符号版.json  # 2996 字
-│   └── 龍魂字元库_v0013_稳定版.json  # 3592 字 ✅
+│   ├── 龍魂字元库_v0013_稳定版.json  # 3592 字
+│   └── 龍魂字元库_v0014_龍纹版.json  # 3592 字 ✅
 ├── output/               # 输出目录
 │   ├── LonghunFont-Regular.otf       # OTF 字体文件
-│   ├── sample_v0013.html             # 在线样张
+│   ├── sample_v0014.html             # 在线样张
 │   ├── demo.html                     # Web 演示页
-│   └── all_glyphs_v0013/             # 3592 个 SVG
+│   └── all_glyphs_v0014/             # 3592 个 SVG
 ├── css/                  # Web 字体 CSS
 │   └── LonghunFont.css               # @font-face 与辅助类
 ├── scripts/              # 构建脚本
@@ -97,7 +99,8 @@ longhun-font/
 │   ├── refine_core_glyphs.py         # 核心字形精修
 │   ├── check_font.py                 # 字元库校验/审计脚本
 │   ├── release.sh                    # 一键构建/标签/双仓发布脚本
-│   └── subset_font.py                # 字体子集化脚本（按文本裁剪 OTF）
+│   ├── subset_font.py                # 字体子集化脚本（按文本裁剪 OTF）
+│   └── embed_longhun_watermark.py    # 龍纹水印嵌入脚本
 ├── docs/                 # 文档
 │   ├── 字体主权战略.md                # 战略文档
 │   ├── PUA编码表.md                   # PUA 编码对照
@@ -117,16 +120,16 @@ longhun-font/
 
 ## 🚀 快速开始
 
-### 1. 构建 OTF 字体
+### 1. 构建 OTF 字体（龍纹水印版）
 ```bash
 make build
-# 等价于：python3 scripts/build_font.py glyphs/龍魂字元库_v0013_稳定版.json output/LonghunFont-Regular.otf
+# 等价于：python3 scripts/build_font.py glyphs/龍魂字元库_v0014_龍纹版.json output/LonghunFont-Regular.otf
 ```
 
 ### 2. 批量渲染 SVG 样张
 ```bash
 make render
-# 输出：output/all_glyphs_v0013/ 与 output/sample_v0013.html
+# 输出：output/all_glyphs_v0014/ 与 output/sample_v0014.html
 ```
 
 ### 3. 字元库校验
@@ -136,15 +139,20 @@ make check
 
 ### 4. 一键发布（校验 + 构建 + 渲染 + 提交 + 标签 + 双仓推送）
 ```bash
-./scripts/release.sh v0013
+./scripts/release.sh v0014
 ```
 
-### 5. macOS 安装字体
+### 5. 龍纹水印说明
+从 v0014 起，每个字形右下角均嵌入 U+E200「龙纹」缩微水印（缩放 0.15 倍，中心位于 520,520）。
+这是 UID9622 / 龍魂系统的身份标识，代码里一眼就能认出是自己人。
+如需生成无水印版，使用 `glyphs/龍魂字元库_v0013_稳定版.json`。
+
+### 6. macOS 安装字体
 ```bash
 ./install_macos.sh
 ```
 
-### 6. 子集化字体（按文本裁剪，减小 Web 体积）
+### 7. 子集化字体（按文本裁剪，减小 Web 体积）
 ```bash
 python3 scripts/subset_font.py \
     --text "龍魂字体主权" \
@@ -204,10 +212,11 @@ python3 scripts/subset_font.py \
 - [x] 字体覆盖报告（Unicode 区段/PUA/分类统计）
 - [x] Makefile 常用命令封装
 - [x] 字体子集化脚本（按文本裁剪 OTF，减小 Web 体积）
+- [x] 龍纹水印嵌入：每个字形右下角带 U+E200 龙纹标识
 - [x] CNSH 编辑器接入（Web + Tkinter）
 - [x] Gitee 主仓 + GitHub 镜像双同步
 - [x] SIL Open Font License 1.1
 
 ---
 
-**DNA追溯**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0013`
+**DNA追溯**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0014`
