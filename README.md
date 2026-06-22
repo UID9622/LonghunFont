@@ -7,6 +7,17 @@
 
 ---
 
+## 🌐 仓库地址
+
+| 角色 | 平台 | 地址 |
+|---|---|---|
+| 主仓（中国） | Gitee | https://gitee.com/uid9622_admin/LonghunFont |
+| 镜像（国际） | GitHub | https://github.com/UID9622/LonghunFont |
+
+> 主仓在国内 Gitee，镜像在国外 GitHub。双仓同步，世界可见。
+
+---
+
 ## 📊 当前状态
 
 | 指标 | 数值 |
