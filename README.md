@@ -70,7 +70,10 @@ longhun-font/
 ├── output/               # 输出目录
 │   ├── LonghunFont-Regular.otf       # OTF 字体文件
 │   ├── sample_v0013.html             # 在线样张
+│   ├── demo.html                     # Web 演示页
 │   └── all_glyphs_v0013/             # 3592 个 SVG
+├── css/                  # Web 字体 CSS
+│   └── LonghunFont.css               # @font-face 与辅助类
 ├── scripts/              # 构建脚本
 │   ├── build_font.py                 # OTF 导出（含字面外框/安全框）
 │   ├── batch_render.py               # 批量 SVG 渲染
@@ -99,6 +102,7 @@ longhun-font/
 │   └── PUA编码表.md                   # PUA 编码对照
 ├── editor.py             # LonghunFont 编辑器 CLI
 ├── push_both.sh          # 双仓同步脚本
+├── install_macos.sh      # macOS 字体安装脚本
 ├── CHANGELOG.md          # 版本变更日志
 ├── LICENSE               # SIL OFL 1.1
 ├── 操作清单.md            # 傻瓜式操作清单
@@ -132,7 +136,19 @@ python3 scripts/check_font.py glyphs/龍魂字元库_v0013_稳定版.json
 ./scripts/release.sh v0013
 ```
 
-### 5. 双仓同步
+### 5. macOS 安装字体
+```bash
+./install_macos.sh
+```
+
+### 6. Web 演示
+用浏览器打开 `output/demo.html`，或把 `css/LonghunFont.css` 引入你的网页：
+```html
+<link rel="stylesheet" href="css/LonghunFont.css">
+<div class="longhun-font">龍魂字体演示</div>
+```
+
+### 7. 双仓同步
 ```bash
 ./push_both.sh
 ```
@@ -171,6 +187,8 @@ python3 scripts/check_font.py glyphs/龍魂字元库_v0013_稳定版.json
 - [x] 字元库校验脚本（完整性/唯一性/编码一致性/分类统计）
 - [x] 一键发布脚本（校验 → 构建 → 渲染 → 提交 → 标签 → 双仓推送）
 - [x] CHANGELOG 版本变更日志
+- [x] macOS 安装脚本
+- [x] Web 字体 CSS + 演示页
 - [x] CNSH 编辑器接入（Web + Tkinter）
 - [x] Gitee 主仓 + GitHub 镜像双同步
 - [x] SIL Open Font License 1.1
