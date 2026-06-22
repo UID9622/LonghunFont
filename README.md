@@ -96,7 +96,8 @@ longhun-font/
 │   ├── glyph_generator.py            # 骨架生成器
 │   ├── refine_core_glyphs.py         # 核心字形精修
 │   ├── check_font.py                 # 字元库校验/审计脚本
-│   └── release.sh                    # 一键构建/标签/双仓发布脚本
+│   ├── release.sh                    # 一键构建/标签/双仓发布脚本
+│   └── subset_font.py                # 字体子集化脚本（按文本裁剪 OTF）
 ├── docs/                 # 文档
 │   ├── 字体主权战略.md                # 战略文档
 │   ├── PUA编码表.md                   # PUA 编码对照
@@ -143,14 +144,23 @@ make check
 ./install_macos.sh
 ```
 
-### 6. Web 演示
+### 6. 子集化字体（按文本裁剪，减小 Web 体积）
+```bash
+python3 scripts/subset_font.py \
+    --text "龍魂字体主权" \
+    --output-json output/subset.json \
+    --output-otf output/subset.otf \
+    --add-ascii
+```
+
+### 7. Web 演示
 用浏览器打开 `output/demo.html`，或把 `css/LonghunFont.css` 引入你的网页：
 ```html
 <link rel="stylesheet" href="css/LonghunFont.css">
 <div class="longhun-font">龍魂字体演示</div>
 ```
 
-### 7. 双仓同步
+### 8. 双仓同步
 ```bash
 ./push_both.sh
 ```
@@ -193,6 +203,7 @@ make check
 - [x] Web 字体 CSS + 演示页
 - [x] 字体覆盖报告（Unicode 区段/PUA/分类统计）
 - [x] Makefile 常用命令封装
+- [x] 字体子集化脚本（按文本裁剪 OTF，减小 Web 体积）
 - [x] CNSH 编辑器接入（Web + Tkinter）
 - [x] Gitee 主仓 + GitHub 镜像双同步
 - [x] SIL Open Font License 1.1
