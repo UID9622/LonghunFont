@@ -1,8 +1,8 @@
 # 🐉 LonghunFont · 龍魂中文字体
 
-**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0009`  
+**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0010`  
 **归属**: 龍魂系统 × UID9622 原创  
-**定位**: CNSH 中文原生字体 · 文化主权 · 农历/黄历/甲骨文  
+**定位**: CNSH 中文原生字体 · 文化主权 · 黄历/天文/民俗全栈  
 **许可证**: SIL Open Font License 1.1
 
 ---
@@ -22,19 +22,25 @@
 
 | 指标 | 数值 |
 |---|---|
-| 字元库版本 | `v0009-农历版` |
-| 总字符数 | **1447** 个 |
+| 字元库版本 | `v0010-主权完整版` |
+| 总字符数 | **1607** 个 |
 | 汉字 | **1085** 个 |
 | 拉丁/数字/符号 | **114** 个 |
 | 易经八卦 | **75** 个（64 卦 + 8 卦 + 太极 + 两仪） |
 | 五行/河图/洛书/太极八卦 | **8** 个 PUA |
-| 甲骨文 | **100** 个 PUA |
+| 甲骨文 | **150** 个 PUA |
 | 中国风文化图标 | **29** 个 PUA |
 | 二十四节气图标 | **24** 个 PUA |
 | 十二生肖图标 | **12** 个 PUA |
-| 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF，135 KB） |
-| 字元库文件 | `glyphs/龍魂字元库_v0009_农历版.json` |
-| SVG 样张 | `output/sample_v0009.html` |
+| 天干地支 | **22** 个 PUA |
+| 二十八宿 | **28** 个 PUA |
+| 传统节日 | **15** 个 PUA |
+| 苏州码子 | **10** 个 PUA |
+| 传统纹样 | **15** 个 PUA |
+| 文化主权图标 | **20** 个 PUA |
+| 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF，159 KB） |
+| 字元库文件 | `glyphs/龍魂字元库_v0010_主权完整版.json` |
+| SVG 样张 | `output/sample_v0010.html` |
 | PUA 编码表 | `docs/PUA编码表.md` |
 | 许可证 | `LICENSE`（SIL OFL 1.1） |
 
@@ -53,11 +59,12 @@ longhun-font/
 │   ├── 龍魂字元库_v0006_五行版.json  # 1282 字
 │   ├── 龍魂字元库_v0007_甲骨文版.json # 1337 字
 │   ├── 龍魂字元库_v0008_文化版.json  # 1366 字
-│   └── 龍魂字元库_v0009_农历版.json  # 1447 字 ✅
+│   ├── 龍魂字元库_v0009_农历版.json  # 1447 字
+│   └── 龍魂字元库_v0010_主权完整版.json  # 1607 字 ✅
 ├── output/               # 输出目录
 │   ├── LonghunFont-Regular.otf       # OTF 字体文件
-│   ├── sample_v0009.html             # 在线样张
-│   └── all_glyphs_v0009/             # 1447 个 SVG
+│   ├── sample_v0010.html             # 在线样张
+│   └── all_glyphs_v0010/             # 1607 个 SVG
 ├── scripts/              # 构建脚本
 │   ├── build_font.py                 # OTF 导出（含字面外框/安全框）
 │   ├── batch_render.py               # 批量 SVG 渲染
@@ -68,6 +75,11 @@ longhun-font/
 │   ├── expand_oracle_bone.py         # 甲骨文扩展
 │   ├── expand_chinese_culture.py     # 中国风文化图标扩展
 │   ├── expand_lunar_sovereignty.py   # 甲骨文/节气/生肖扩展
+│   ├── expand_tiangan_dizhi.py       # 天干地支扩展
+│   ├── expand_ershiba_xiu.py         # 二十八宿扩展
+│   ├── expand_chuan_tong_jieri.py    # 传统节日扩展
+│   ├── expand_suzhou_motifs.py       # 苏州码子/传统纹样扩展
+│   ├── expand_extra_sovereignty.py   # 北斗/四象/福禄寿喜财/文房/乐器扩展
 │   ├── glyph_generator.py            # 骨架生成器
 │   └── refine_core_glyphs.py         # 核心字形精修
 ├── docs/                 # 文档
@@ -87,14 +99,14 @@ longhun-font/
 ### 1. 构建 OTF 字体
 ```bash
 python3 scripts/build_font.py \
-    glyphs/龍魂字元库_v0009_农历版.json \
+    glyphs/龍魂字元库_v0010_主权完整版.json \
     output/LonghunFont-Regular.otf
 ```
 
 ### 2. 批量渲染 SVG 样张
 ```bash
-python3 scripts/batch_render.py glyphs/龍魂字元库_v0009_农历版.json output/all_glyphs_v0009
-# 输出：output/all_glyphs_v0009/ 与 output/sample_v0009.html
+python3 scripts/batch_render.py glyphs/龍魂字元库_v0010_主权完整版.json output/all_glyphs_v0010
+# 输出：output/all_glyphs_v0010/ 与 output/sample_v0010.html
 ```
 
 ### 3. 双仓同步
@@ -120,10 +132,16 @@ python3 scripts/batch_render.py glyphs/龍魂字元库_v0009_农历版.json outp
 - [x] 1085 个汉字 + 114 个拉丁/数字/符号
 - [x] 75 个易经/八卦/太极/两仪符号
 - [x] 8 个五行/河图/洛书/太极八卦 PUA 图标
-- [x] 100 个甲骨文字符（四季、时序、天象、祭祀、权力、农牧工商等）
+- [x] 150 个甲骨文字符（四季、时序、天象、祭祀、权力、农牧工商、器物等）
 - [x] 29 个中国风文化图标（龙纹、凤纹、祥云、灯笼、红包、饺子等）
 - [x] 24 个二十四节气 PUA 图标
 - [x] 12 个十二生肖 PUA 图标
+- [x] 22 个天干地支 PUA 图标
+- [x] 28 个二十八宿 PUA 图标
+- [x] 15 个传统节日 PUA 图标
+- [x] 10 个苏州码子 PUA 符号
+- [x] 15 个传统纹样 PUA 图标
+- [x] 20 个文化主权图标（北斗/四象/福禄寿喜财/文房/乐器/麒麟）
 - [x] OTF 导出，含真实字面外框与安全框
 - [x] CNSH 编辑器接入（Web + Tkinter）
 - [x] Gitee 主仓 + GitHub 镜像双同步
@@ -131,4 +149,4 @@ python3 scripts/batch_render.py glyphs/龍魂字元库_v0009_农历版.json outp
 
 ---
 
-**DNA追溯**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0009`
+**DNA追溯**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0010`
