@@ -1,10 +1,10 @@
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-MAKEFILE-v1.0
 
-GLYPHS = glyphs/龍魂字元库_v0013_稳定版.json
+GLYPHS = glyphs/龍魂字元库_v0014_龍纹版.json
 OTF = output/LonghunFont-Regular.otf
-SVG_DIR = output/all_glyphs_v0013
-SAMPLE = output/sample_v0013.html
+SVG_DIR = output/all_glyphs_v0014
+SAMPLE = output/sample_v0014.html
 
 .PHONY: all build render check release install demo clean
 
