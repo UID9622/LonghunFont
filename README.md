@@ -1,8 +1,8 @@
 # 🐉 LonghunFont · 龍魂中文字体
 
-**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0012`  
+**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0013`  
 **归属**: 龍魂系统 × UID9622 原创  
-**定位**: CNSH 中文原生字体 · 文化主权 · 办公/终端/国际混排  
+**定位**: CNSH 中文原生字体 · 文化主权 · 稳定全场景  
 **许可证**: SIL Open Font License 1.1
 
 ---
@@ -22,9 +22,9 @@
 
 | 指标 | 数值 |
 |---|---|
-| 字元库版本 | `v0012-国际符号版` |
-| 总字符数 | **2996** 个 |
-| 汉字 | **2135** 个 |
+| 字元库版本 | `v0013-稳定版` |
+| 总字符数 | **3592** 个 |
+| 汉字 | **2731** 个 |
 | 拉丁/数字/符号 | **114** 个 |
 | 易经八卦 | **75** 个（64 卦 + 8 卦 + 太极 + 两仪） |
 | 五行/河图/洛书/太极八卦 | **8** 个 PUA |
@@ -40,9 +40,9 @@
 | 文化主权图标 | **20** 个 PUA |
 | 实用符号（标点/数学/箭头/制表符/货币/几何） | **151** 个 |
 | 国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等） | **188** 个 |
-| 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF，309 KB） |
-| 字元库文件 | `glyphs/龍魂字元库_v0012_国际符号版.json` |
-| SVG 样张 | `output/sample_v0012.html` |
+| 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF，357 KB） |
+| 字元库文件 | `glyphs/龍魂字元库_v0013_稳定版.json` |
+| SVG 样张 | `output/sample_v0013.html` |
 | PUA 编码表 | `docs/PUA编码表.md` |
 | 许可证 | `LICENSE`（SIL OFL 1.1） |
 
@@ -65,11 +65,12 @@ longhun-font/
 │   ├── 龍魂字元库_v0010_主权完整版.json  # 1607 字
 │   ├── 龍魂字元库_v0011_两千中文字.json  # 2657 字
 │   ├── 龍魂字元库_v0011_实用符号版.json  # 2808 字
-│   └── 龍魂字元库_v0012_国际符号版.json  # 2996 字 ✅
+│   ├── 龍魂字元库_v0012_国际符号版.json  # 2996 字
+│   └── 龍魂字元库_v0013_稳定版.json  # 3592 字 ✅
 ├── output/               # 输出目录
 │   ├── LonghunFont-Regular.otf       # OTF 字体文件
-│   ├── sample_v0012.html             # 在线样张
-│   └── all_glyphs_v0012/             # 2996 个 SVG
+│   ├── sample_v0013.html             # 在线样张
+│   └── all_glyphs_v0013/             # 3592 个 SVG
 ├── scripts/              # 构建脚本
 │   ├── build_font.py                 # OTF 导出（含字面外框/安全框）
 │   ├── batch_render.py               # 批量 SVG 渲染
@@ -88,6 +89,7 @@ longhun-font/
 │   ├── expand_chinese_2000.py        # 中文字符扩至 2000+
 │   ├── expand_practical_symbols.py   # 标点/数学/箭头/制表符/货币扩展
 │   ├── expand_international_symbols.py # 拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标
+│   ├── expand_chinese_2600.py        # 中文字符扩至 2600+
 │   ├── glyph_generator.py            # 骨架生成器
 │   └── refine_core_glyphs.py         # 核心字形精修
 ├── docs/                 # 文档
@@ -107,14 +109,14 @@ longhun-font/
 ### 1. 构建 OTF 字体
 ```bash
 python3 scripts/build_font.py \
-    glyphs/龍魂字元库_v0012_国际符号版.json \
+    glyphs/龍魂字元库_v0013_稳定版.json \
     output/LonghunFont-Regular.otf
 ```
 
 ### 2. 批量渲染 SVG 样张
 ```bash
-python3 scripts/batch_render.py glyphs/龍魂字元库_v0012_国际符号版.json output/all_glyphs_v0012
-# 输出：output/all_glyphs_v0012/ 与 output/sample_v0012.html
+python3 scripts/batch_render.py glyphs/龍魂字元库_v0013_稳定版.json output/all_glyphs_v0013
+# 输出：output/all_glyphs_v0013/ 与 output/sample_v0013.html
 ```
 
 ### 3. 双仓同步
@@ -137,7 +139,7 @@ python3 scripts/batch_render.py glyphs/龍魂字元库_v0012_国际符号版.jso
 
 ## 📌 已完成功能
 
-- [x] 2135 个汉字 + 114 个拉丁/数字/符号
+- [x] 2731 个汉字 + 114 个拉丁/数字/符号
 - [x] 151 个实用符号（标点/数学/箭头/制表符/货币/几何）
 - [x] 188 个国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等）
 - [x] 75 个易经/八卦/太极/两仪符号
@@ -159,4 +161,4 @@ python3 scripts/batch_render.py glyphs/龍魂字元库_v0012_国际符号版.jso
 
 ---
 
-**DNA追溯**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0012`
+**DNA追溯**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0013`
