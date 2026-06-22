@@ -91,12 +91,15 @@ longhun-font/
 │   ├── expand_international_symbols.py # 拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标
 │   ├── expand_chinese_2600.py        # 中文字符扩至 2600+
 │   ├── glyph_generator.py            # 骨架生成器
-│   └── refine_core_glyphs.py         # 核心字形精修
+│   ├── refine_core_glyphs.py         # 核心字形精修
+│   ├── check_font.py                 # 字元库校验/审计脚本
+│   └── release.sh                    # 一键构建/标签/双仓发布脚本
 ├── docs/                 # 文档
 │   ├── 字体主权战略.md                # 战略文档
 │   └── PUA编码表.md                   # PUA 编码对照
 ├── editor.py             # LonghunFont 编辑器 CLI
 ├── push_both.sh          # 双仓同步脚本
+├── CHANGELOG.md          # 版本变更日志
 ├── LICENSE               # SIL OFL 1.1
 ├── 操作清单.md            # 傻瓜式操作清单
 └── README.md             # 本文件
@@ -119,7 +122,17 @@ python3 scripts/batch_render.py glyphs/龍魂字元库_v0013_稳定版.json outp
 # 输出：output/all_glyphs_v0013/ 与 output/sample_v0013.html
 ```
 
-### 3. 双仓同步
+### 3. 字元库校验
+```bash
+python3 scripts/check_font.py glyphs/龍魂字元库_v0013_稳定版.json
+```
+
+### 4. 一键发布（校验 + 构建 + 渲染 + 提交 + 标签 + 双仓推送）
+```bash
+./scripts/release.sh v0013
+```
+
+### 5. 双仓同步
 ```bash
 ./push_both.sh
 ```
@@ -155,6 +168,9 @@ python3 scripts/batch_render.py glyphs/龍魂字元库_v0013_稳定版.json outp
 - [x] 15 个传统纹样 PUA 图标
 - [x] 20 个文化主权图标（北斗/四象/福禄寿喜财/文房/乐器/麒麟）
 - [x] OTF 导出，含真实字面外框与安全框
+- [x] 字元库校验脚本（完整性/唯一性/编码一致性/分类统计）
+- [x] 一键发布脚本（校验 → 构建 → 渲染 → 提交 → 标签 → 双仓推送）
+- [x] CHANGELOG 版本变更日志
 - [x] CNSH 编辑器接入（Web + Tkinter）
 - [x] Gitee 主仓 + GitHub 镜像双同步
 - [x] SIL Open Font License 1.1
