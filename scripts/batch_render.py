@@ -95,9 +95,16 @@ def generate_html_sample(glyph_path: str, output_dir: str, html_path: str):
 
 def main():
     base_dir = Path(__file__).parent.parent
-    glyph_path = base_dir / "glyphs" / "龍魂字元库_v0002_扩展.json"
-    output_dir = base_dir / "output" / "all_glyphs"
-    html_path = base_dir / "output" / "sample.html"
+    glyph_path = base_dir / "glyphs" / "龍魂字元库_v0003_千字符.json"
+    output_dir = base_dir / "output" / "all_glyphs_v0003"
+    html_path = base_dir / "output" / "sample_v0003.html"
+
+    if len(sys.argv) > 1:
+        glyph_path = Path(sys.argv[1])
+    if len(sys.argv) > 2:
+        output_dir = Path(sys.argv[2])
+    if len(sys.argv) > 3:
+        html_path = Path(sys.argv[3])
 
     rendered, failed = batch_render(str(glyph_path), str(output_dir))
     generate_html_sample(str(glyph_path), str(output_dir), str(html_path))

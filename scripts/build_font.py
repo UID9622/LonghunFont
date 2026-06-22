@@ -191,4 +191,10 @@ if __name__ == "__main__":
     base_dir = Path(__file__).parent.parent
     glyph_path = base_dir / "glyphs" / "龍魂字元库_v0002_扩展.json"
     output_path = base_dir / "output" / "LonghunFont-Regular.otf"
+
+    if len(sys.argv) > 1:
+        glyph_path = Path(sys.argv[1])
+    if len(sys.argv) > 2:
+        output_path = Path(sys.argv[2])
+
     build_otf(str(glyph_path), str(output_path))
