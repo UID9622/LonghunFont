@@ -31,7 +31,9 @@ def batch_render(glyph_path: str, output_dir: str):
     failed = []
     for char in sorted(engine.字元集_cnsh9622.keys()):
         try:
-            out_file = output_dir / f"{char}.svg"
+            # 统一使用 U+XXXX 文件名，避免大小写/特殊字符冲突
+            safe_char = f"U{ord(char):04X}"
+            out_file = output_dir / f"{safe_char}.svg"
             engine.输出SVG_cnsh龍魂_v1(char, str(out_file))
             rendered.append(char)
         except Exception as e:
@@ -75,7 +77,8 @@ def generate_html_sample(glyph_path: str, output_dir: str, html_path: str):
     <div class="grid">
 """
     for char in chars:
-        svg_file = f"{char}.svg"
+        safe_char = f"U{ord(char):04X}"
+        svg_file = f"{safe_char}.svg"
         html += f"""        <div class="cell">
             <img src="{svg_file}" alt="{char}">
             <div class="char">{char}</div>
@@ -95,9 +98,9 @@ def generate_html_sample(glyph_path: str, output_dir: str, html_path: str):
 
 def main():
     base_dir = Path(__file__).parent.parent
-    glyph_path = base_dir / "glyphs" / "龍魂字元库_v0003_千字符.json"
-    output_dir = base_dir / "output" / "all_glyphs_v0003"
-    html_path = base_dir / "output" / "sample_v0003.html"
+    glyph_path = base_dir / "glyphs" / "龍魂字元库_v0004_办公版.json"
+    output_dir = base_dir / "output" / "all_glyphs_v0004"
+    html_path = base_dir / "output" / "sample_v0004.html"
 
     if len(sys.argv) > 1:
         glyph_path = Path(sys.argv[1])
