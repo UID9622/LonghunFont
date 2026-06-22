@@ -104,6 +104,8 @@ longhun-font/
 ├── editor.py             # LonghunFont 编辑器 CLI
 ├── push_both.sh          # 双仓同步脚本
 ├── install_macos.sh      # macOS 字体安装脚本
+├── Makefile              # 常用命令封装（build/render/check/release）
+├── .gitignore            # Git 忽略规则
 ├── CHANGELOG.md          # 版本变更日志
 ├── LICENSE               # SIL OFL 1.1
 ├── 操作清单.md            # 傻瓜式操作清单
@@ -116,20 +118,19 @@ longhun-font/
 
 ### 1. 构建 OTF 字体
 ```bash
-python3 scripts/build_font.py \
-    glyphs/龍魂字元库_v0013_稳定版.json \
-    output/LonghunFont-Regular.otf
+make build
+# 等价于：python3 scripts/build_font.py glyphs/龍魂字元库_v0013_稳定版.json output/LonghunFont-Regular.otf
 ```
 
 ### 2. 批量渲染 SVG 样张
 ```bash
-python3 scripts/batch_render.py glyphs/龍魂字元库_v0013_稳定版.json output/all_glyphs_v0013
+make render
 # 输出：output/all_glyphs_v0013/ 与 output/sample_v0013.html
 ```
 
 ### 3. 字元库校验
 ```bash
-python3 scripts/check_font.py glyphs/龍魂字元库_v0013_稳定版.json
+make check
 ```
 
 ### 4. 一键发布（校验 + 构建 + 渲染 + 提交 + 标签 + 双仓推送）
@@ -191,6 +192,7 @@ python3 scripts/check_font.py glyphs/龍魂字元库_v0013_稳定版.json
 - [x] macOS 安装脚本
 - [x] Web 字体 CSS + 演示页
 - [x] 字体覆盖报告（Unicode 区段/PUA/分类统计）
+- [x] Makefile 常用命令封装
 - [x] CNSH 编辑器接入（Web + Tkinter）
 - [x] Gitee 主仓 + GitHub 镜像双同步
 - [x] SIL Open Font License 1.1
