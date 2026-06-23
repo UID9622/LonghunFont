@@ -1,8 +1,8 @@
 # 🐉 LonghunFont · 龍魂中文字体
 
-**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0017`  
+**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0018`  
 **归属**: 龍魂系统 × UID9622 原创  
-**定位**: CNSH 中文原生字体 · 文化主权 · 龍纹水印 · 书法骨架 · 女娲五彩石渲染  
+**定位**: CNSH 中文原生字体 · 文化主权 · 龍纹水印 · 书法曲线骨架 · 女娲五彩石渲染  
 **许可证**: SIL Open Font License 1.1
 
 ---
@@ -22,12 +22,12 @@
 
 | 指标 | 数值 |
 |---|---|
-| 字元库版本 | `v0017-龍纹书法版` |
-| 总字符数 | **7866** 个 |
-| 汉字 | **7000** 个 |
+| 字元库版本 | `v0018-龍纹书法版` |
+| 总字符数 | **10866** 个 |
+| 汉字 | **10000** 个 |
 | 拉丁/数字/符号 | **124** 个 |
 | 龍纹水印 | **每个字形右下角均嵌入 U+E200 龙纹缩微水印** |
-| 骨架风格 | **书法/手写占位骨架：倾斜面板 + 笔锋三角 + 斜米字交叉** |
+| 骨架风格 | **书法曲线占位骨架：二次贝塞尔曲线 + 笔锋三角 + 倾斜透视** |
 | 结构支持 | **单一 / 左右 / 左中右 / 上下 / 上中下 / 包围 / 半包围 / 品字形 / 镶嵌** |
 | 女娲五彩石渲染 | **跨平台字符级五色循环：红/黄/青/白/黑** |
 | 易经八卦 | **75** 个（64 卦 + 8 卦 + 太极 + 两仪） |
@@ -45,8 +45,8 @@
 | 实用符号（标点/数学/箭头/制表符/货币/几何） | **151** 个 |
 | 国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等） | **188** 个 |
 | 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF） |
-| 字元库文件 | `glyphs/龍魂字元库_v0017_龍纹书法版.json` |
-| SVG 样张 | `output/sample_v0017.html` |
+| 字元库文件 | `glyphs/龍魂字元库_v0018_龍纹书法版.json` |
+| SVG 样张 | `output/sample_v0018.html` |
 | 五彩石演示 | `wuwu_demo.html` |
 | PUA 编码表 | `docs/PUA编码表.md` |
 | 许可证 | `LICENSE`（SIL OFL 1.1） |
@@ -81,12 +81,15 @@ longhun-font/
 │   ├── 龍魂字元库_v0016_龍纹书法版.json  # 5992 字
 │   ├── 龍魂字元库_v0017_七千中文字.json  # 7866 字
 │   ├── 龍魂字元库_v0017_书法骨架版.json  # 7866 字
-│   └── 龍魂字元库_v0017_龍纹书法版.json  # 7866 字 ✅
+│   ├── 龍魂字元库_v0017_龍纹书法版.json  # 7866 字
+│   ├── 龍魂字元库_v0018_一万中文字.json  # 10866 字
+│   ├── 龍魂字元库_v0018_书法骨架版.json  # 10866 字
+│   └── 龍魂字元库_v0018_龍纹书法版.json  # 10866 字 ✅
 ├── output/               # 输出目录
 │   ├── LonghunFont-Regular.otf       # OTF 字体文件
-│   ├── sample_v0017.html             # 在线样张
+│   ├── sample_v0018.html             # 在线样张
 │   ├── demo.html                     # Web 演示页
-│   └── all_glyphs_v0017/             # 7866 个 SVG
+│   └── all_glyphs_v0018/             # 10866 个 SVG
 ├── css/                  # Web 字体 CSS
 │   ├── LonghunFont.css               # @font-face 与辅助类
 │   └── wuwu.css                      # 女娲五彩石渲染样式
@@ -95,6 +98,12 @@ longhun-font/
 ├── examples/             # 各端示例
 │   └── harmonyos/
 │       └── WuwuFontPage.ets          # HarmonyOS ArkTS 示例
+├── packages/             # 可复用包
+│   └── wuwu-renderer/                # 女娲五彩石渲染器 npm/小程序包
+│       ├── src/wuwu.js
+│       ├── src/wuwu.css
+│       ├── miniprogram/              # 微信小程序组件
+│       └── README.md
 ├── wuwu_demo.html        # 五彩石渲染在线演示
 ├── scripts/              # 构建脚本
 │   ├── build_font.py                 # OTF 导出（含字面外框/安全框）
@@ -118,6 +127,7 @@ longhun-font/
 │   ├── expand_chinese_3500.py        # 中文字符扩至 3500
 │   ├── expand_chinese_5000.py        # 中文字符扩至 5000+
 │   ├── expand_chinese_7000.py        # 中文字符扩至 7000+（通用规范汉字表）
+│   ├── expand_chinese_10000.py       # 中文字符扩至 10000（全 BMP CJK）
 │   ├── data/
 │   │   └── tongyong_guifan_7909.txt  # 《通用规范汉字表》7909 字数据
 │   ├── refine_all_cjk.py             # 全量 CJK 骨架精修
@@ -151,13 +161,13 @@ longhun-font/
 ### 1. 构建 OTF 字体（龍纹书法版）
 ```bash
 make build
-# 等价于：python3 scripts/build_font.py glyphs/龍魂字元库_v0017_龍纹书法版.json output/LonghunFont-Regular.otf
+# 等价于：python3 scripts/build_font.py glyphs/龍魂字元库_v0018_龍纹书法版.json output/LonghunFont-Regular.otf
 ```
 
 ### 2. 批量渲染 SVG 样张
 ```bash
 make render
-# 输出：output/all_glyphs_v0017/ 与 output/sample_v0017.html
+# 输出：output/all_glyphs_v0018/ 与 output/sample_v0018.html
 ```
 
 ### 3. 字元库校验
@@ -167,7 +177,7 @@ make check
 
 ### 4. 一键发布（校验 + 构建 + 渲染 + 提交 + 标签 + 双仓推送）
 ```bash
-./scripts/release.sh v0017
+./scripts/release.sh v0018
 ```
 
 ### 5. 女娲五彩石渲染
@@ -230,7 +240,7 @@ python3 scripts/subset_font.py \
 
 ## 📌 已完成功能
 
-- [x] 7000 个汉字 + 124 个拉丁/数字/符号
+- [x] 10000 个汉字 + 124 个拉丁/数字/符号
 - [x] 151 个实用符号（标点/数学/箭头/制表符/货币/几何）
 - [x] 188 个国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等）
 - [x] 75 个易经/八卦/太极/两仪符号
@@ -255,10 +265,11 @@ python3 scripts/subset_font.py \
 - [x] Makefile 常用命令封装
 - [x] 字体子集化脚本（按文本裁剪 OTF，减小 Web 体积）
 - [x] 龍纹水印嵌入：每个字形右下角带 U+E200 龙纹标识
-- [x] 中文字符扩展至 7000，按《通用规范汉字表》一级/二级/三级顺序补全
+- [x] 中文字符扩展至 10000，覆盖全部 BMP CJK 统一表意文字
 - [x] CJK 骨架按 9 种结构精修（单一/左右/左中右/上下/上中下/包围/半包围/品字形/镶嵌）
-- [x] 书法风格占位骨架：倾斜面板 + 笔锋三角 + 斜米字交叉
+- [x] 书法曲线占位骨架：二次贝塞尔曲线 + 笔锋三角 + 倾斜透视
 - [x] 女娲五彩石跨平台渲染：Web/HarmonyOS/iOS/Android 统一五色石色卡
+- [x] Wuwu 渲染器 npm / 微信小程序包 `@longhun/wuwu-renderer`
 - [x] Windows 安装脚本 `install_windows.bat`
 - [x] CNSH 编辑器接入（Web + Tkinter）
 - [x] Gitee 主仓 + GitHub 镜像双同步
@@ -266,4 +277,4 @@ python3 scripts/subset_font.py \
 
 ---
 
-**DNA追溯**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0017`
+**DNA追溯**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0018`
