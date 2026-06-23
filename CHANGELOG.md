@@ -2,9 +2,65 @@
 
 # LonghunFont 更新日志
 
-> 记录从 v0001 到 v0015 的稳定演进。所有版本日期均为 `2026-06-22`。
+> 记录从 v0001 到 v0019 的稳定演进。所有版本日期均为 `2026-06-22`。
 
 ---
+
+## v0019（龍纹书法版 · 全 BMP CJK + Extension A · 五彩石彩色字体）— 28957 字元
+
+- 汉字扩展至 **28096** 个，覆盖 **CJK 统一表意文字（U+4E00~U+9FFF）**、**CJK Extension A（U+3400~U+4DBF）**、**CJK 兼容区（U+F900~U+FAFF）**，总字符数达 **28957**。
+- 新增 `scripts/expand_chinese_full_cjk.py`，按 Unicode 码位顺序补全全部 BMP CJK 与兼容区。
+- 全量 CJK 书法骨架精修 `refine_all_cjk_calligraphy.py` 升级，同步覆盖新增的 18000+ 个 CJK 字符。
+- 新增五彩石彩色字体原型：
+  - `scripts/build_wuwu_color_font.py`：把任意文本子集生成 `LonghunFont-WuwuColor.otf`。
+  - 使用 COLR/CPAL 标准（v0），纵向五色带：红/黄/青/白/黑。
+  - 与单色版并行存在，系统级应用（Word/Pages/浏览器）无需额外 CSS 即可显示五彩石。
+- 保留 v0018 的女娲五彩石渲染层与龍纹水印：全部 28956 个字形右下角嵌入 U+E200 龙纹标识。
+- `release.sh`、`Makefile` 默认指向 v0019，并在发布时附带 `LonghunFont-WuwuColor.otf`。
+
+## v3.0 书法轮廓原型（试验版）— 28957 字元
+
+- 新增 `scripts/build_font_v3.py`：把骨架笔画转换为可变宽度闭合轮廓。
+- 起笔/收笔做 tapered brush tip，模拟毛笔锋颖；横画略粗、竖画略细、斜画中粗。
+- 输出 `output/LonghunFont-Regular-v3.otf`，与单色版并行存在，供艺术场景预览。
+- 该版本不替换默认 `LonghunFont-Regular.otf`，待精修确认后再升级为主版本。
+
+## v0018（龍纹书法版 · 一万中文 · 曲线骨架 · Wuwu 包）— 10866 字元
+
+- 汉字扩展至 **10000** 个，覆盖全部 **BMP CJK 统一表意文字**（U+4E00~U+9FFF），总字符数达 **10866**。
+- 新增 `scripts/expand_chinese_10000.py`，按 Unicode 码位顺序补全剩余 CJK 统一表意文字。
+- 书法骨架生成器升级为 v2.0：
+  - 二次贝塞尔曲线采样，用多段直线逼近毛笔曲线（撇、捺、弯钩）。
+  - 清理结构集合污染，优化左右/上下/包围/半包围/品字形/镶嵌透视与笔锋。
+  - 主笔画两端普遍加 brush tip，强化手写气韵。
+- 新增 `packages/wuwu-renderer/`：
+  - `@longhun/wuwu-renderer` npm 包，含 `renderWuwu()`、五色石色卡、CSS。
+  - 微信小程序组件 `miniprogram/`（wxml/wxss/js/json）。
+  - `dist/wuwu.min.js` / `dist/wuwu.min.css` 可直接引用。
+- 保留 v0017 的女娲五彩石渲染与龍纹水印：全部 10865 个字形右下角嵌入 U+E200 龙纹标识。
+- `release.sh`、`Makefile`、`generate_coverage_report.py` 默认指向 v0018。
+
+## v0017（龍纹书法版 · 七千中文 · 女娲五彩石）— 7866 字元
+
+- 汉字扩展至 **7000** 个，严格按《通用规范汉字表》一级 → 二级 → 三级顺序补全，总字符数达 **7866**。
+- 新增 `scripts/expand_chinese_7000.py` 与 `scripts/data/tongyong_guifan_7909.txt`，实现国标驱动的自动扩字。
+- 新增 **女娲五彩石渲染层**：
+  - `css/wuwu.css` + `js/wuwu.js`：Web / H5 / 小程序 / Electron / PWA 跨平台字符级五色循环。
+  - `examples/harmonyos/WuwuFontPage.ets`：HarmonyOS ArkTS 示例。
+  - `docs/女娲五彩石渲染指南.md`：Web/iOS/Android/HarmonyOS 统一实现说明。
+  - `wuwu_demo.html`：在线演示页。
+- 五色石色卡硬编码：红 `#FF0000`、黄 `#FFFF00`、青 `#00FFFF`、白 `#FFFFFF`、黑 `#000000`，主权声明，不随系统主题改变。
+- 保留 v0016 的书法骨架与龍纹水印：全部 7865 个字形右下角嵌入 U+E200 龙纹标识。
+- `release.sh`、`Makefile`、`generate_coverage_report.py` 默认指向 v0017。
+
+## v0016（龍纹书法版）— 5992 字元
+
+- 汉字扩展至 5131 个，覆盖《通用规范汉字表》一级、二级常用字，总字符数达 5992。
+- 新增 `glyph_generator_calligraphy.py` 书法骨架生成器：倾斜面板、笔锋三角、斜米字交叉，使占位骨架呈现手写/书法气质。
+- 新增 `refine_all_cjk_calligraphy.py` 脚本，对全部 5131 个 CJK 汉字批量应用书法骨架。
+- 新增 `install_windows.bat` Windows 字体安装脚本，与 macOS 安装脚本并列。
+- 保留 v0015 的龍纹水印：全部 5991 个字形右下角嵌入 U+E200 龙纹标识。
+- 更新 `release.sh`、`Makefile`、`generate_coverage_report.py` 默认指向 v0016。
 
 ## v0015（龍纹精修版）— 4392 字元
 
