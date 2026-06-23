@@ -5,6 +5,7 @@
 """
 import json
 import os
+import sys
 from datetime import datetime, timezone
 
 # ---------------------------------------------------------------------------
@@ -17,6 +18,11 @@ SOURCE_PATH = os.path.join(
 OUTPUT_PATH = os.path.join(
     PROJECT_ROOT, "glyphs", "龍魂字元库_v0014_龍纹版.json"
 )
+
+if len(sys.argv) > 1:
+    SOURCE_PATH = sys.argv[1]
+if len(sys.argv) > 2:
+    OUTPUT_PATH = sys.argv[2]
 
 SOURCE_UNICODE = "U+E200"
 VIEWBOX_SIZE = 600
@@ -137,8 +143,9 @@ def main():
     # 更新元数据
     # -----------------------------------------------------------------------
     meta = library.setdefault("元数据", {})
-    meta["版本"] = "v0014-龍纹版"
-    meta["前一版本"] = "v0013-稳定版"
+    prev_version = meta.get("版本", "unknown")
+    meta["版本"] = f"{prev_version.split('-')[0]}-龍纹版" if "龍纹版" not in prev_version else prev_version
+    meta["前一版本"] = prev_version
     meta["总字符数"] = total
     meta["水印编码"] = SOURCE_UNICODE
     meta["水印名称"] = source_glyph.get("名称", "龙纹")
