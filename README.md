@@ -1,8 +1,8 @@
 # 🐉 LonghunFont · 龍魂中文字体
 
-**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0015`  
+**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0016`  
 **归属**: 龍魂系统 × UID9622 原创  
-**定位**: CNSH 中文原生字体 · 文化主权 · 龍纹水印 · 精修骨架版  
+**定位**: CNSH 中文原生字体 · 文化主权 · 龍纹水印 · 书法骨架版  
 **许可证**: SIL Open Font License 1.1
 
 ---
@@ -22,12 +22,13 @@
 
 | 指标 | 数值 |
 |---|---|
-| 字元库版本 | `v0015-龍纹精修版` |
-| 总字符数 | **4392** 个 |
-| 汉字 | **3531** 个 |
-| 拉丁/数字/符号 | **114** 个 |
+| 字元库版本 | `v0016-龍纹书法版` |
+| 总字符数 | **5992** 个 |
+| 汉字 | **5131** 个 |
+| 拉丁/数字/符号 | **124** 个 |
 | 龍纹水印 | **每个字形右下角均嵌入 U+E200 龙纹缩微水印** |
-| 骨架精修 | **CJK 按单一/左右/左中右/上下/上中下/包围/半包围/品字形/镶嵌生成结构骨架** |
+| 骨架风格 | **书法/手写占位骨架：倾斜面板 + 笔锋三角 + 斜米字交叉** |
+| 结构支持 | **单一 / 左右 / 左中右 / 上下 / 上中下 / 包围 / 半包围 / 品字形 / 镶嵌** |
 | 易经八卦 | **75** 个（64 卦 + 8 卦 + 太极 + 两仪） |
 | 五行/河图/洛书/太极八卦 | **8** 个 PUA |
 | 甲骨文 | **150** 个 PUA |
@@ -42,9 +43,9 @@
 | 文化主权图标 | **20** 个 PUA |
 | 实用符号（标点/数学/箭头/制表符/货币/几何） | **151** 个 |
 | 国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等） | **188** 个 |
-| 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF，1.4 MB） |
-| 字元库文件 | `glyphs/龍魂字元库_v0015_龍纹精修版.json` |
-| SVG 样张 | `output/sample_v0015.html` |
+| 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF） |
+| 字元库文件 | `glyphs/龍魂字元库_v0016_龍纹书法版.json` |
+| SVG 样张 | `output/sample_v0016.html` |
 | PUA 编码表 | `docs/PUA编码表.md` |
 | 许可证 | `LICENSE`（SIL OFL 1.1） |
 
@@ -72,12 +73,15 @@ longhun-font/
 │   ├── 龍魂字元库_v0014_龍纹版.json  # 3592 字
 │   ├── 龍魂字元库_v0015_三千五中文字.json  # 4392 字
 │   ├── 龍魂字元库_v0015_精修骨架版.json  # 4392 字
-│   └── 龍魂字元库_v0015_龍纹精修版.json  # 4392 字 ✅
+│   ├── 龍魂字元库_v0015_龍纹精修版.json  # 4392 字
+│   ├── 龍魂字元库_v0016_五千中文字.json  # 5992 字
+│   ├── 龍魂字元库_v0016_书法骨架版.json  # 5992 字
+│   └── 龍魂字元库_v0016_龍纹书法版.json  # 5992 字 ✅
 ├── output/               # 输出目录
 │   ├── LonghunFont-Regular.otf       # OTF 字体文件
-│   ├── sample_v0015.html             # 在线样张
+│   ├── sample_v0016.html             # 在线样张
 │   ├── demo.html                     # Web 演示页
-│   └── all_glyphs_v0015/             # 4392 个 SVG
+│   └── all_glyphs_v0016/             # 5992 个 SVG
 ├── css/                  # Web 字体 CSS
 │   └── LonghunFont.css               # @font-face 与辅助类
 ├── scripts/              # 构建脚本
@@ -100,8 +104,11 @@ longhun-font/
 │   ├── expand_international_symbols.py # 拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标
 │   ├── expand_chinese_2600.py        # 中文字符扩至 2600+
 │   ├── expand_chinese_3500.py        # 中文字符扩至 3500
+│   ├── expand_chinese_5000.py        # 中文字符扩至 5000+
 │   ├── refine_all_cjk.py             # 全量 CJK 骨架精修
-│   ├── glyph_generator.py            # 骨架生成器 v2.0
+│   ├── glyph_generator.py            # 标准骨架生成器 v2.0
+│   ├── glyph_generator_calligraphy.py # 书法骨架生成器 v1.0
+│   ├── refine_all_cjk_calligraphy.py # 书法骨架精修脚本
 │   ├── refine_core_glyphs.py         # 核心字形精修
 │   ├── check_font.py                 # 字元库校验/审计脚本
 │   ├── release.sh                    # 一键构建/标签/双仓发布脚本
@@ -126,16 +133,16 @@ longhun-font/
 
 ## 🚀 快速开始
 
-### 1. 构建 OTF 字体（龍纹精修版）
+### 1. 构建 OTF 字体（龍纹书法版）
 ```bash
 make build
-# 等价于：python3 scripts/build_font.py glyphs/龍魂字元库_v0015_龍纹精修版.json output/LonghunFont-Regular.otf
+# 等价于：python3 scripts/build_font.py glyphs/龍魂字元库_v0016_龍纹书法版.json output/LonghunFont-Regular.otf
 ```
 
 ### 2. 批量渲染 SVG 样张
 ```bash
 make render
-# 输出：output/all_glyphs_v0015/ 与 output/sample_v0015.html
+# 输出：output/all_glyphs_v0016/ 与 output/sample_v0016.html
 ```
 
 ### 3. 字元库校验
@@ -145,7 +152,7 @@ make check
 
 ### 4. 一键发布（校验 + 构建 + 渲染 + 提交 + 标签 + 双仓推送）
 ```bash
-./scripts/release.sh v0015
+./scripts/release.sh v0016
 ```
 
 ### 5. 龍纹水印说明
@@ -153,10 +160,16 @@ make check
 这是 UID9622 / 龍魂系统的身份标识，代码里一眼就能认出是自己人。
 如需生成无水印版，使用 `glyphs/龍魂字元库_v0013_稳定版.json`。
 
-### 6. macOS 安装字体
-```bash
-./install_macos.sh
-```
+### 6. 安装字体
+- **macOS**
+  ```bash
+  ./install_macos.sh
+  ```
+- **Windows**
+  在资源管理器中双击 `install_windows.bat`，或在 CMD/PowerShell 中运行：
+  ```bat
+  install_windows.bat
+  ```
 
 ### 7. 子集化字体（按文本裁剪，减小 Web 体积）
 ```bash
@@ -194,7 +207,7 @@ python3 scripts/subset_font.py \
 
 ## 📌 已完成功能
 
-- [x] 3531 个汉字 + 114 个拉丁/数字/符号
+- [x] 5131 个汉字 + 124 个拉丁/数字/符号
 - [x] 151 个实用符号（标点/数学/箭头/制表符/货币/几何）
 - [x] 188 个国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等）
 - [x] 75 个易经/八卦/太极/两仪符号
@@ -219,12 +232,14 @@ python3 scripts/subset_font.py \
 - [x] Makefile 常用命令封装
 - [x] 字体子集化脚本（按文本裁剪 OTF，减小 Web 体积）
 - [x] 龍纹水印嵌入：每个字形右下角带 U+E200 龙纹标识
-- [x] 中文字符扩展至 3500+，覆盖通用规范一级字表
+- [x] 中文字符扩展至 5000+，覆盖通用规范一级/二级字表
 - [x] CJK 骨架按 9 种结构精修（单一/左右/左中右/上下/上中下/包围/半包围/品字形/镶嵌）
+- [x] 书法风格占位骨架：倾斜面板 + 笔锋三角 + 斜米字交叉
+- [x] Windows 安装脚本 `install_windows.bat`
 - [x] CNSH 编辑器接入（Web + Tkinter）
 - [x] Gitee 主仓 + GitHub 镜像双同步
 - [x] SIL Open Font License 1.1
 
 ---
 
-**DNA追溯**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0015`
+**DNA追溯**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0016`
