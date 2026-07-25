@@ -45,7 +45,8 @@
 | 文化主权图标 | **20** 个 PUA |
 | 实用符号（标点/数学/箭头/制表符/货币/几何） | **151** 个 |
 | 国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等） | **188** 个 |
-| 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF） |
+| 字体文件（桌面） | `output/龙魂字体-Regular.otf`（OpenType/CFF，25.06 MB） |
+| 字体文件（网页） | `output/龙魂字体-Regular.woff2`（WOFF2，2.46 MB） |
 | v3.0 书法轮廓原型 | `output/LonghunFont-Regular-v3.otf`（可变宽度笔锋，试验版） |
 | 字元库文件 | `glyphs/龍魂字元库_v0019_龍纹书法版.json` |
 | SVG 样张 | `output/sample_v0019.html` |
@@ -87,13 +88,16 @@ longhun-font/
 │   ├── 龍魂字元库_v0019_龍纹书法版.json  # 28957 字 ✅
 │   └── ...（历史版本保留）
 ├── output/               # 输出目录
-│   ├── LonghunFont-Regular.otf       # OTF 字体文件
+│   ├── 龙魂字体-Regular.otf          # OTF 桌面字体文件
+│   ├── 龙魂字体-Regular.woff2        # WOFF2 网页字体（压缩 90%）
+│   ├── LonghunFont-Regular.otf       # 旧版兼容 OTF
 │   ├── LonghunFont-WuwuColor.otf     # 五彩石 COLR/CPAL 彩色字体原型
 │   ├── sample_v0019.html             # 在线样张
 │   ├── demo.html                     # Web 演示页
 │   └── all_glyphs_v0019/             # 28957 个 SVG
 ├── css/                  # Web 字体 CSS
-│   ├── LonghunFont.css               # @font-face 与辅助类
+│   ├── 龙魂字体.css                  # @font-face 与辅助类（推荐）
+│   ├── LonghunFont.css               # 旧版兼容别名
 │   └── wuwu.css                      # 女娲五彩石渲染样式
 ├── js/                   # 跨平台渲染脚本
 │   └── wuwu.js                       # Web/H5/小程序五彩石上色
@@ -160,26 +164,34 @@ longhun-font/
 
 ## 🚀 快速开始
 
-### 1. 构建 OTF 字体（龍纹书法版）
+### 1. 优化与重命名（推荐）
+```bash
+make optimize
+# 输出：
+#   output/龙魂字体-Regular.otf    （桌面用，显示名为「龙魂字体」）
+#   output/龙魂字体-Regular.woff2  （网页用，仅 2.46 MB，压缩率 90%）
+```
+
+### 2. 构建 OTF 字体（从字元库，需要 LFS 拉取源数据）
 ```bash
 make build
 # 等价于：python3 scripts/build_font.py glyphs/龍魂字元库_v0019_龍纹书法版.json output/LonghunFont-Regular.otf
 ```
 
-### 2. 批量渲染 SVG 样张
+### 3. 批量渲染 SVG 样张
 ```bash
 make render
 # 输出：output/all_glyphs_v0019/ 与 output/sample_v0019.html
 ```
 
-### 2.5 构建五彩石彩色字体原型
+### 4. 构建五彩石彩色字体原型
 ```bash
 make demo-color
 # 输出：output/LonghunFont-WuwuColor.otf
 # 每个字被纵向分为红/黄/青/白/黑 5 个色带，COLR/CPAL 标准兼容 Windows/macOS/iOS/Android
 ```
 
-### 2.6 构建 v3.0 书法轮廓原型
+### 5. 构建 v3.0 书法轮廓原型
 ```bash
 make build-v3
 # 输出：output/LonghunFont-Regular-v3.otf
@@ -249,14 +261,17 @@ python3 scripts/subset_font.py \
     --add-ascii
 ```
 
-### 8. Web 演示
+### 8. Web 演示（推荐 WOFF2）
 用浏览器打开 `output/demo.html` 或 `wuwu_demo.html`，或把 CSS/JS 引入你的网页：
 ```html
-<link rel="stylesheet" href="css/LonghunFont.css">
+<link rel="stylesheet" href="css/龙魂字体.css">
 <link rel="stylesheet" href="css/wuwu.css">
-<div data-wuwu="true" class="longhun-font">龍魂字体演示</div>
+<div data-wuwu="true" class="龙魂字体">龍魂字体演示</div>
 <script src="js/wuwu.js"></script>
 ```
+
+> 新版 `css/龙魂字体.css` 优先加载 `output/龙魂字体-Regular.woff2`（2.46 MB），
+> 旧版 `css/LonghunFont.css` 仍保留为兼容别名。
 
 ### 9. 双仓同步
 ```bash
