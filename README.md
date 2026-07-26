@@ -172,7 +172,7 @@ make optimize
 #   output/龙魂字体-Regular.woff2  （网页用，仅 2.46 MB，压缩率 90%）
 ```
 
-### 2. 构建 OTF 字体（从字元库，需要 LFS 拉取源数据）
+### 2. 构建 OTF 字体（从字元库；源数据本地生成，仓库提供预构建 OTF）
 ```bash
 make build
 # 等价于：python3 scripts/build_font.py glyphs/龍魂字元库_v0019_龍纹书法版.json output/LonghunFont-Regular.otf

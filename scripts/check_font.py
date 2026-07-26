@@ -59,6 +59,8 @@ def validate_structure(data: dict, errors: list):
 def validate_glyphs(data: dict, errors: list):
     """校验每个字元条目"""
     glyphs = data.get("字符集_cnsh9622", {})
+    if not glyphs:
+        return
     if not isinstance(glyphs, dict):
         errors.append("字符集_cnsh9622 必须是字典")
         return

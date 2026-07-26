@@ -126,7 +126,7 @@ def build_otf(glyph_path: str, output_path: str):
     with open(glyph_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    chars = data["字符集_cnsh9622"]
+    chars = data.get("字符集_cnsh9622", {})
     scale = UNITS_PER_EM / VIEWBOX
 
     cmap = {}

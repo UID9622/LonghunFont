@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:306628b0ee2f7a1b9d026f1844e7805dffbe8baf48ab815999b20eb058f1ce76
-size 14527198
+{
+  "DNA追溯码": "#龍芯⚡️2026-07-26-LONGHUN-FONT-STUB",
+  "元数据": {
+    "版本": "v0019-龍纹书法版",
+    "说明": "源字元库数据为本地生成，未纳入仓库。请使用 output/LonghunFont-Regular.otf 预构建字体。"
+  },
+  "三色审计_cnsh9622": {
+    "红": 0,
+    "黄": 0,
+    "绿": 0
+  },
+  "字符集_cnsh9622": {}
+}
