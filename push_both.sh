@@ -5,10 +5,10 @@
 
 set -e
 
-echo "🚀 推送到 Gitee（主仓）..."
+echo "🚀 推送到 GitHub（origin 镜像）..."
 git push origin main
 
-echo "🚀 推送到 GitHub（镜像）..."
-git push github main
+echo "🚀 推送到 Gitee（gitee 镜像）..."
+git push gitee main
 
 echo "✅ 双仓同步完成"
