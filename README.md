@@ -1,5 +1,11 @@
 # 🐉 LonghunFont · 龍魂中文字体
 
+[![License](https://img.shields.io/badge/license-MulanPSL%20v2%20%7C%20CC%20BY--NC--SA%204.0-green)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/UID9622/LonghunFont?style=social)](https://github.com/UID9622/LonghunFont/stargazers)
+[![Issues](https://img.shields.io/github/issues/UID9622/LonghunFont)](https://github.com/UID9622/LonghunFont/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/UID9622/LonghunFont)](https://github.com/UID9622/LonghunFont/commits)
+
+
 **DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0019`  
 **归属**: 龍魂系统 × UID9622 原创  
 **定位**: CNSH 中文原生字体 · 文化主权 · 龍纹水印 · 书法曲线骨架 · 女娲五彩石渲染  
