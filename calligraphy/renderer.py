@@ -52,6 +52,16 @@ def _load_fallback_font(fallback_path: str, size: int):
         return ImageFont.truetype(fallback_path, size)
     # 通用回退
     candidates = [
+        # 优先仓库自带的 LonghunFont 中文字体
+        str(BASE_DIR / "output" / "LonghunFont-Regular-v3.otf"),
+        str(BASE_DIR / "output" / "龙魂字体-Regular.otf"),
+        # Linux 常见中文字体
+        "/usr/share/fonts/HarmonyFont/Harmony-Medium.ttf",
+        "/usr/share/fonts/HarmonyFont/Harmony-Regular.ttf",
+        "/usr/share/fonts/google-droid-fonts/DroidSansFallback.ttf",
+        "/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf",
+        "/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc",
+        # macOS 路径（兼容）
         "/System/Library/AssetsV2/com_apple_MobileAsset_Font8/88d6cc32a907955efa1d014207889413890573be.asset/AssetData/Kaiti.ttc",
         "/System/Library/Fonts/STHeiti Light.ttc",
         "/System/Library/Fonts/PingFang.ttc",
