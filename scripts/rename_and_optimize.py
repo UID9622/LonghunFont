@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# DNA追溯码:#龍芯⚡️2026-07-25-LONGHUN-FONT-RENAME-OPT-v1.0
+# 创建者: 诸葛鑫（UID9622）
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 龍魂字体重命名与优化脚本
 - 将字体显示名改为「龙魂字体」

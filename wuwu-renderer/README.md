@@ -1,6 +1,8 @@
 # @uid9622/wuwu-renderer
 
 <!-- DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-WUWU-RENDERER-v1.0 -->
+<!-- 创建者: 诸葛鑫（UID9622） -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
 
 女娲五彩石跨平台渲染器 / Wuwu (Nuwa Five-Colored Stone) cross-platform text renderer.
 

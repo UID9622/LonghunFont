@@ -1,5 +1,7 @@
 /* 龍魂·六层来源链 / LongHun Six-Layer Source Chain */
 /* DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-WUWU-RENDERER-v1.0 */
+/* 创建者: 诸葛鑫（UID9622） */
+/* 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 */
 
 /**
  * 女娲五彩石渲染器 (Wuwu Renderer) —— 跨平台通用版
