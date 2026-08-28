@@ -233,7 +233,7 @@ make check
 
 ### 4. 一键发布（校验 + 构建 + 渲染 + 提交 + 标签 + 双仓推送）
 ```bash
-./scripts/release.sh v0018
+./scripts/release.sh v0019
 ```
 
 ### 5. 女娲五彩石渲染

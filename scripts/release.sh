@@ -12,7 +12,7 @@ DNA="#龍芯⚡️2026-06-22-LONGHUN-FONT-RELEASE-v1.0"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-RELEASE_REPO="/Users/zuimeidedeyihan/LonghunFont"
+RELEASE_REPO="${HOME}/longhun-system/_work/repos/LonghunFont"
 
 # 稳定版字元库路径
 GLYPH_LIBRARY="${PROJECT_DIR}/glyphs/龍魂字元库_v0013_稳定版.json"
